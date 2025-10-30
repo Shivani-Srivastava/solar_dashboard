@@ -23,7 +23,7 @@ def generate_mock_data():
     
     # Generate 48 hours of data, one row per hour
     num_hours = 48
-    end_time = datetime.now().replace(minute=0, second=0, microsecond=0)
+    end_time = datetime.now(IST).replace(minute=0, second=0, microsecond=0)
     timestamps = [end_time - timedelta(hours=i) for i in range(num_hours)][::-1]
 
     # Cumulative energy starts at 1000 and increases
