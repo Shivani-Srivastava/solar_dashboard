@@ -121,6 +121,22 @@ def main():
     
     st.markdown(f"""
         <style>
+
+        /* --- NEW CODE TO HIDE THE WHITE BAR (STREAMLIT HEADER/MENU) --- */
+        header {{
+            visibility: hidden; /* Hides the native header element */
+            height: 0px;        /* Removes its space */
+        }}
+        .stDeployButton {{
+            visibility: hidden; /* Hides the deploy button, if present */
+        }}
+        .stApp > header {{
+            visibility: hidden;
+            height: 0px;
+            padding: 0px;
+        }}
+        /* --- END NEW CODE --- */
+        
         /* 1. Static Backdrop / Background Image with Opacity */
         .stApp {{
             /* Overlay a 40% opaque light gray color over the image to achieve 60% opacity */
