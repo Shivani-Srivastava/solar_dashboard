@@ -14,8 +14,9 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# Define the target timezone globally (GMT+5:30)
+# 'Asia/Kolkata' is the official IANA name for Indian Standard Time (IST)
 IST = pytz.timezone('Asia/Kolkata')
-datetime.now(IST)
 
 # --- 1. MOCK DATA GENERATION (REPLACE THIS) ---
 def generate_mock_data():
@@ -162,7 +163,8 @@ def app_main():
     # --- END TIME OF DAY LOGIC ---
     
     # Calculate the current time string once for the caption
-    current_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
+    # FIX: Use the globally defined IST object to localize the time
+    current_time_str = datetime.now(IST).strftime("%Y-%m-%d %H:%M:%S IST")
 
     # --- Layout for Metrics and Chart ---
     # Create three columns: 1 for cumulative, 1 for hourly, and 2 for the chart
@@ -238,8 +240,5 @@ def app_main():
             st.caption(f"Last System Refresh: {current_time_str} (Data TTL: 60s)")
 
 
-
-
 if __name__ == "__main__":
     app_main()
-
