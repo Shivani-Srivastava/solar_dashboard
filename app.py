@@ -4,6 +4,7 @@ import numpy as np
 import altair as alt
 from datetime import datetime, timedelta
 import time
+import pytz
 
 # --- CONFIGURATION ---
 st.set_page_config(
@@ -12,6 +13,9 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+IST = pytz.timezone('Asia/Kolkata')
+datetime.now(IST)
 
 # --- 1. MOCK DATA GENERATION (REPLACE THIS) ---
 def generate_mock_data():
